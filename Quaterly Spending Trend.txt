@@ -1,0 +1,14 @@
+Quaterly Spending Trend
+
+SELECT
+    Quarter,
+    SUM(Val ([Total Amount Reimbursed])) AS total_reimbursed,
+    SUM(Val ([Number of Prescriptions])) AS total_prescriptions
+FROM
+    Drug_Utilization
+WHERE
+    [Total Amount Reimbursed] IS NOT NULL
+GROUP BY
+    Quarter
+ORDER BY
+    Quarter;

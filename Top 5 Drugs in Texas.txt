@@ -1,0 +1,16 @@
+Top 5 Drugs in Texas
+
+SELECT
+    TOP 5 [Product Name],
+    SUM(Val ([Number of Prescriptions])) AS total_prescriptions,
+    SUM(Val ([Total Amount Reimbursed])) AS total_reimbursed
+FROM
+    Drug_Utilization
+WHERE
+    State = 'TX'
+    AND [Number of Prescriptions] IS NOT NULL
+    AND [Product Name] IS NOT NULL
+GROUP BY
+    [Product Name]
+ORDER BY
+    SUM(Val ([Number of Prescriptions])) DESC;

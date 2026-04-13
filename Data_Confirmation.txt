@@ -1,0 +1,6 @@
+Data_Confirmation
+
+SELECT
+    TOP 10 *
+FROM
+    Drug_Utilization;

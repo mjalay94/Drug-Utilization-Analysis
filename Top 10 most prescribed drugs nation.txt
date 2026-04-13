@@ -1,0 +1,14 @@
+Top 10 most prescribed drugs nationally
+
+SELECT
+    TOP 10 [Product Name],
+    SUM(Val ([Number of Prescriptions])) AS total_prescriptions
+FROM
+    Drug_Utilization
+WHERE
+    [Number of Prescriptions] IS NOT NULL
+    AND [Product Name] IS NOT NULL
+GROUP BY
+    [Product Name]
+ORDER BY
+    SUM(Val ([Number of Prescriptions])) DESC;

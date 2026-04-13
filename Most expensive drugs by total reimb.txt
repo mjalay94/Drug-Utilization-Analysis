@@ -1,0 +1,16 @@
+Most expensive drugs by total reimbursement
+
+SELECT
+    TOP 10 [Product Name],
+    SUM(Val ([Total Amount Reimbursed])) AS total_reimbursed,
+    SUM(Val ([Number of Prescriptions])) AS total_prescriptions
+FROM
+    Drug_Utilization
+WHERE
+    [Total Amount Reimbursed] IS NOT NULL
+    AND [Number of Prescriptions] IS NOT NULL
+    AND [Product Name] IS NOT NULL
+GROUP BY
+    [Product Name]
+ORDER BY
+    SUM(Val ([Total Amount Reimbursed])) DESC;
